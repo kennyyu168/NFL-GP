@@ -1,0 +1,4 @@
+# ignore dumb files and cache
+
+.DS_Store
+Thumbs.db
