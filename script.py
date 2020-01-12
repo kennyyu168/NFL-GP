@@ -37,6 +37,7 @@ def main():
     team1_data = find_row(team_1, csv_file)
     team2_data = find_row(team_2, csv_file2)
 
+    # populate dictionaries
     dict_team1 = {}
     dict_team2 = {}
 
@@ -53,7 +54,6 @@ def main():
     team1_wp = 0
     team2_wp = 0
 
-
     team1_pos = 100 - (float(dict_team1["Yards"]) + float(dict_team1["Start"]))
     team2_pos = 100 - (float(dict_team2["Yards"]) + float(dict_team2["Start"]))
     team1_ppd = float(dict_team1["Pts/G"]) * 16 / float(dict_team1["Drives"])
@@ -61,9 +61,11 @@ def main():
     team1_dpg = float(dict_team1["Drives"]) / 16
     team2_dpg = float(dict_team2["Drives"]) / 16
 
+    # theoretical team ppg
     team1_f = team1_dpg * team1_ppd * (100-float(dict_team1["TO"]))/100
     team2_f = team2_dpg * team2_ppd * (100-float(dict_team2["TO"]))/100
 
+    # choke factor
     rand = random.random()
     if (team1_f > team2_f):
         if (rand >= .80):
@@ -72,12 +74,12 @@ def main():
         if (rand >= .80):
             team2_f = team2_f * .80
 
+    # inconsistency factor
     team1_f = team1_f + random.randrange(-5*int((float(dict_team1["Pts/G"])-team1_f)), 5*int((float(dict_team1["Pts/G"])-team1_f)))
     team2_f = team2_f + random.randrange(-5*int((float(dict_team2["Pts/G"])-team2_f)), 5*int((float(dict_team2["Pts/G"])-team2_f)))
 
     print(team1_f)
     print(team2_f)
-    #
 
 if __name__ == "__main__":
     main()
