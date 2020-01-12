@@ -34,13 +34,6 @@ def find_row(team, file_read):
 # Return Value: Returns a percentage based on the each category
 def weight(data):
 	# Categorize each data point
-	wins = data[1]
-	drives = data[2]
-	yards = data[3]
-	start = data[4]
-	pts_g = data[5]
-	sc = data[6]
-	t_o = data[7]
 
 
 
