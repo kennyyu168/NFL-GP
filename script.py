@@ -16,13 +16,13 @@ def find_row(team, file_read):
         if (team == row[0]):
             return row
 
-def main():
+def main(team1, team2):
     # Headers for each column
     headers = ["Team Name", "Wins", "Drives", "Yards", "Start", "Pts/G", "SC", "TO"]
 
     # Take in input for two teams to be compared
-    team_1 = input("Enter first NFL team name: ")
-    team_2 = input("Enter second NFL team name: ")
+    team_1 = team1
+    team_2 = team2
 
     # with open('nfl19.csv', newline='') as csvfile:
     #    reader = csv.reader(csvfile, delimiter=' ')
@@ -78,8 +78,11 @@ def main():
     team1_f = team1_f + random.randrange(-5*int((float(dict_team1["Pts/G"])-team1_f)), 5*int((float(dict_team1["Pts/G"])-team1_f)))
     team2_f = team2_f + random.randrange(-5*int((float(dict_team2["Pts/G"])-team2_f)), 5*int((float(dict_team2["Pts/G"])-team2_f)))
 
-    print(team1_f)
-    print(team2_f)
+    print(dict_team1["Team Name"] + ": " + str(team1_f))
+    print(dict_team2["Team Name"] + ": " + str(team2_f))
+
+    f_list = [team1_f, team2_f]
+    return f_list
 
 if __name__ == "__main__":
     main()
