@@ -12,7 +12,7 @@ import csv
 import os
 
 # Import team_finder to find the information for each team
-import team_finder
+import team_finder as teamf
 
 # Headers for each column
 headers = {"Team Name", "Wins", "Drives", "Yards", "Start", "Pts/G", "SC", "TO"}
@@ -30,8 +30,12 @@ print("Which one of " + team_1 + " or " + team_2 + " will win?")
 #        print(', '.join(row))
 
 # Opens the csv file
-csv_file = csv.reader(open('nfl19.csv', "rb"), delimiter=",")
+csv_file = csv.reader(open('nfl19.csv', "r"), delimiter=",")
 
 # Finds the row for team 1
+team_1_data = teamf.find_row(team_1, csv_file)
+team_2_data = teamf.find_row(team_2, csv_file)
+print( team_1_data )
+print( team_2_data )
 
 
