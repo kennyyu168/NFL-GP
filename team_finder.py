@@ -12,9 +12,3 @@ import csv
 # Parameters: team - team name
 #             file_read - file to be searched
 # Return Value: Array of values from that row
-def find_row(team, file_read):
-	for row in file_read:
-		if team == row[0]:
-			return row
-
-
