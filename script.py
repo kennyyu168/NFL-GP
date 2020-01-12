@@ -78,11 +78,8 @@ def main(team1, team2):
     team1_f = team1_f + random.randrange(-5*int((float(dict_team1["Pts/G"])-team1_f)), 5*int((float(dict_team1["Pts/G"])-team1_f)))
     team2_f = team2_f + random.randrange(-5*int((float(dict_team2["Pts/G"])-team2_f)), 5*int((float(dict_team2["Pts/G"])-team2_f)))
 
-    print(dict_team1["Team Name"] + ": " + str(team1_f))
-    print(dict_team2["Team Name"] + ": " + str(team2_f))
+    team1_final = dict_team1["Team Name"] + ": " + str(team1_f)
+    team2_final = dict_team2["Team Name"] + ": " + str(team2_f)
 
-    f_list = [team1_f, team2_f]
+    f_list = [team1_final, team2_final]
     return f_list
-
-if __name__ == "__main__":
-    main()

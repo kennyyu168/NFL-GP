@@ -5,15 +5,30 @@ from flask import (
 import script as sc
 
 app = Flask(__name__, instance_relative_config=True, static_folder='static', static_url_path='/static')
-@app.route('/', method=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def main():
+    
+    # If something was entered i.e. post request
     if request.method == 'POST':
+        
+        # Reads in the request
         team_readin = request.form['teams']
+        
+        # Splits request down
         split = team_readin.split(", ")
         team1 = split[0]
         team2 = split[1]
         
+        # Calls the main method to get the result
+        result = sc.main(team1, team2)
+        team1 = result[0]
+        team2 = result[1]
+        return render_template('index.html', team1=team1, team2=team2)
     
+    # Else if calling home or loading for the first time
+    else: 
+        team1 = "Please enter in the format 'Baltimore Ravens, San Francisco 49ers' "
+        return render_template('index.html', team1=team1, team2='')
     
     
 @app.route("/butwhy")
