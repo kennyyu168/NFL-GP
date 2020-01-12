@@ -11,6 +11,9 @@ import csv
 # Import os to check file for emptiness
 import os
 
+# Import team_finder to find the information for each team
+import 
+
 # Headers for each column
 headers = {"Team Name", "Wins", "Drives", "Yards", "Start", "Pts/G", "SC", "TO"}
 
@@ -25,3 +28,8 @@ print("Which one of " + team_1 + " or " + team_2 + " will win?")
 #    reader = csv.reader(csvfile, delimiter=' ')
 #    for row in reader:
 #        print(', '.join(row))
+
+# Opens the csv file
+csv_file = csv.reader(open('nfl19.csv', "rb"), delimiter=",")
+
+
