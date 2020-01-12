@@ -80,6 +80,12 @@ def main(team1, team2):
 
     team1_final = dict_team1["Team Name"] + ": " + str(team1_f)
     team2_final = dict_team2["Team Name"] + ": " + str(team2_f)
+    
+    win = 0
+    if team1_f > team2_f:
+        win = 1;
+    else:
+        win = 2;
 
-    f_list = [team1_final, team2_final]
+    f_list = [team1_final, team2_final, win]
     return f_list

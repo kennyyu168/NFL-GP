@@ -23,12 +23,13 @@ def main():
         result = sc.main(team1, team2)
         team1 = result[0]
         team2 = result[1]
-        return render_template('index.html', team1=team1, team2=team2)
+        win = result[2]
+        return render_template('index.html', team1=team1, team2=team2, win=win)
     
     # Else if calling home or loading for the first time
     else: 
         team1 = "Please enter in the format 'Baltimore Ravens, San Francisco 49ers' "
-        return render_template('index.html', team1=team1, team2='')
+        return render_template('index.html', team1=team1, team2='', win = 0)
     
     
 @app.route("/butwhy")
