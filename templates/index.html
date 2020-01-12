@@ -17,12 +17,12 @@ https://templatemo.com/tm-521-get-ready
      <meta name="team" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/vegas.min.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/vegas.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
 
      <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/templatemo-style.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}">
 
 </head>
 <body>
@@ -46,7 +46,7 @@ https://templatemo.com/tm-521-get-ready
             <h1>Us</h1>
              <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">But Why?</a></li>
+                <li><a href="/butwhy">But Why?</a></li>
                 <li><a href="https://github.com/tsuialan">Alan</a></li>
                 <li><a href="https://github.com/kennyyu168">Kenny</a></li>
             </ul>
@@ -96,12 +96,12 @@ https://templatemo.com/tm-521-get-ready
      </section>
 
      <!-- SCRIPTS -->
-     <script src="js/jquery.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/vegas.min.js"></script>
-     <script src="js/countdown.js"></script>
-     <script src="js/init.js"></script>
-     <script src="js/custom.js"></script>
+     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <!-- <script src="{{ url_for('static', filename='js/vegas.min.js') }}"></script> -->
+     <script src="{{ url_for('static', filename='js/countdown.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/init.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
 
 </body>
 </html>
