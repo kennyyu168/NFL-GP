@@ -2,9 +2,17 @@ from flask import (
     Flask, Blueprint, flash, g, redirect, render_template, request, url_for
 )
 
+import script as sc
+
 app = Flask(__name__, instance_relative_config=True, static_folder='static', static_url_path='/static')
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', method=['GET', 'POST'])
 def main():
+    if request.method == 'POST':
+        team_readin = request.form['teams']
+        split = team_readin.split(", ")
+        team1 = split[0]
+        team2 = split[1]
+        
     
     
     
