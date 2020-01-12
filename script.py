@@ -18,8 +18,8 @@ import team_finder
 headers = {"Team Name", "Wins", "Drives", "Yards", "Start", "Pts/G", "SC", "TO"}
 
 # Take in input for two teams to be compared
-team_1 = raw_input("Enter first team name: ")
-team_2 = raw_input("Enter second team name: ")
+team_1 = input("Enter first team name: ")
+team_2 = input("Enter second team name: ")
 
 # Print out the two teams for checking
 print("Which one of " + team_1 + " or " + team_2 + " will win?")
