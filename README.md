@@ -6,7 +6,7 @@ How to use:
 2) Press the button!
 3) Think about your results.
 
-Motivation:
+# Motivation:
 
 As football fans, we were a little bored heading into the week before the Super Bowl and 
 wanted to make something interesting. Like how people who make brackets for March Madness,
