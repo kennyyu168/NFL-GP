@@ -1,5 +1,6 @@
 # NFL-GP
 Predicts the outcome of an NFL Game based on certain team stats.
+https://nfl-gp.herokuapp.com/
 
 ## How to use: 
 1) Enter 2 teams you wanna predict go head to head.
@@ -12,5 +13,5 @@ wanted to make something interesting. Like how people who make brackets for Marc
 we wanted to make something that will help make brackets for the NFL playoffs.
 
 ## Upcoming: 
-- Webhosting on Heroku
 - New data model (either using Sci-Kit or Tensorflow)
+- Revamp for 2020 season with new stats
