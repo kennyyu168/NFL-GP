@@ -3,9 +3,10 @@ from flask import (
 )
 
 import script as sc
+import os
 
 # Set the port 
-#port = 
+port = int(os.environ.get('PORT', 5000))
 
 app = Flask(__name__, instance_relative_config=True, static_folder='static', static_url_path='/static')
 @app.route('/', methods=['GET', 'POST'])
@@ -40,4 +41,4 @@ def butwhy():
     return render_template('butwhy.html')
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
