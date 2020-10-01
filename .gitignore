@@ -1,7 +1,7 @@
-# ignore dumb files and cache
+#ignore dumb files and cache
 
 .DS_Store
 Thumbs.db
 env/
 __pycache__/
-# *.pyc
+*.pyc
