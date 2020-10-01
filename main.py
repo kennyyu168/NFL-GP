@@ -6,7 +6,7 @@ import script as sc
 import os
 
 # Set the port 
-port = int(os.environ.get('PORT', 5000))
+port = int(os.environ.get('PORT', 33507))
 
 app = Flask(__name__, instance_relative_config=True, static_folder='static', static_url_path='/static')
 @app.route('/', methods=['GET', 'POST'])
