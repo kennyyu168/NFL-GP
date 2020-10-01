@@ -19,9 +19,9 @@ def main():
         team_readin = request.form['teams']
         
         # Splits request down
-        split = team_readin.split(", ")
-        team1 = split[0]
-        team2 = split[1]
+        split = team_readin.split(",")
+        team1 = split[0].strip()
+        team2 = split[1].strip()
         
         # Calls the main method to get the result
         result = sc.main(team1, team2)
