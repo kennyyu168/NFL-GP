@@ -1,3 +1,2 @@
 gunicorn
-os
 flask
