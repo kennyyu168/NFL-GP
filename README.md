@@ -15,3 +15,5 @@ we wanted to make something that will help make brackets for the NFL playoffs.
 ## Upcoming: 
 - New data model (either using Sci-Kit or Tensorflow)
 - Revamp for 2020 season with new stats
+- Fix edge cases for the text box
+- Replace text box with drop down menu instead?
