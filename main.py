@@ -36,13 +36,13 @@ def main():
                 team2 = result[1]
                 win = result[2]
                 return render_template('index.html', team1=team1, team2=team2, win=win)
-	    
-	    except TypeError:
+
+            except TypeError:
 	        # Since result isn't good tell user to try again
 	        team1 = "A team you've entered doesn't exist, please enter in the format 'Baltimore Ravens, San Francisco 49ers' "
 	        return render_template('index.html', team1=team1, team2='', win=2)
 	
-	except IndexError:
+        except IndexError:
 	    # If only 1 team was entered
 	    team1 = "Only 1 team was entered, please enter in the format 'Baltimore Ravens, San Francisco 49ers' "
 	    return render_template('index.html', team1=team1, team2='', win=2) 
