@@ -40,12 +40,12 @@ def main():
             except TypeError:
 	        # Since result isn't good tell user to try again
                 team1 = "A team you've entered doesn't exist, please enter in the format 'Baltimore Ravens, San Francisco 49ers' "
-		return render_template('index.html', team1=team1, team2='', win=2)
+                return render_template('index.html', team1=team1, team2='', win=2)
 	
         except IndexError:
 	    # If only 1 team was entered
-	    team1 = "Only 1 team was entered, please enter in the format 'Baltimore Ravens, San Francisco 49ers' "
-	    return render_template('index.html', team1=team1, team2='', win=2) 
+            team1 = "Only 1 team was entered, please enter in the format 'Baltimore Ravens, San Francisco 49ers' "
+            return render_template('index.html', team1=team1, team2='', win=2) 
     
     # Else if calling home or loading for the first time
     else: 
