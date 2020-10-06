@@ -24,7 +24,7 @@ def main():
         team_readin = request.form['teams']
         
         # Splits request down
-	try: 
+        try: 
             split = team_readin.split(",")
             team1 = split[0].strip()
             team2 = split[1].strip()
