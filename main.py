@@ -31,7 +31,7 @@ def main():
 	    
 	    # Calls the main method to get the result
             try:
-	        result = sc.main(team1, team2)
+                result = sc.main(team1, team2)
                 team1 = result[0]
                 team2 = result[1]
                 win = result[2]
