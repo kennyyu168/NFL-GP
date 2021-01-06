@@ -11,6 +11,7 @@ import csv
 # Import os to check file for emptiness
 import os
 import random
+from datetime import datetime
 
 
 def find_row(team, file_read):
@@ -20,7 +21,6 @@ def find_row(team, file_read):
 
 
 def main(team1, team2):
-    print(team1, team2)
     # Headers for each column
     # Team,Drives,TO,Yards,Start,Pts,TotPts,Pts/G
     headers = ["Team", "Drives", "TO", "Yards",
@@ -37,10 +37,11 @@ def main(team1, team2):
 
     # Opens the csv file
     csv_file = csv.reader(open('nfl2021.csv', "r"), delimiter=",")
+    csv_file2 = csv.reader(open('nfl2021copy.csv', "r"), delimiter=",")
 
     # Finds the row for team 1
     team1_data = find_row(team_1, csv_file)
-    team2_data = find_row(team_2, csv_file)
+    team2_data = find_row(team_2, csv_file2)
 
     # populate dictionaries
     dict_team1 = {}
@@ -50,11 +51,7 @@ def main(team1, team2):
 
     for num in range(0, length):
         dict_team1[headers[num]] = team1_data[num]
-    for num in range(0, length):
         dict_team2[headers[num]] = team2_data[num]
-
-    print(dict_team1)
-    print(dict_team2)
 
     team1_wp = 0
     team2_wp = 0
@@ -72,10 +69,8 @@ def main(team1, team2):
     team1_f = team1_dpg * team1_ppd * (100-float(dict_team1["TO"]))/100
     team2_f = team2_dpg * team2_ppd * (100-float(dict_team2["TO"]))/100
 
-    print("HERE")
-    print(team1_f, team2_f)
-
     # choke factor
+    random.seed(datetime.now())
     rand = random.random()
     if (team1_f > team2_f):
         if (rand >= .80):

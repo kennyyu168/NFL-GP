@@ -1,6 +1,10 @@
 import sys
 import script
 
-teams = " ".join(sys.argv[1:]).split(", ")
+#teams = " ".join(sys.argv[1:]).split(", ")
 # print(teams)
-script.main(teams[0], teams[1])
+with open ("wildcards.txt") as fp:
+    Lines = fp.read().splitlines()
+    for line in Lines:
+        teams = line.split(", ")
+        script.main(teams[0], teams[1])
