@@ -9,16 +9,22 @@
 import csv
 
 # Import os to check file for emptiness
-import os, random
+import os
+import random
+
 
 def find_row(team, file_read):
     for row in file_read:
         if (team == row[0]):
             return row
 
+
 def main(team1, team2):
+    print(team1, team2)
     # Headers for each column
-    headers = ["Team Name", "Wins", "Drives", "Yards", "Start", "Pts/G", "SC", "TO"]
+    # Team,Drives,TO,Yards,Start,Pts,TotPts,Pts/G
+    headers = ["Team", "Drives", "TO", "Yards",
+               "Start", "Pts", "TotPts", "Pts/G"]
 
     # Take in input for two teams to be compared
     team_1 = team1
@@ -30,12 +36,11 @@ def main(team1, team2):
     #        print(', '.join(row))
 
     # Opens the csv file
-    csv_file = csv.reader(open('nfl19.csv', "r"), delimiter=",")
-    csv_file2 = csv.reader(open('nfl20.csv', "r"), delimiter=",")
+    csv_file = csv.reader(open('nfl2021.csv', "r"), delimiter=",")
 
     # Finds the row for team 1
     team1_data = find_row(team_1, csv_file)
-    team2_data = find_row(team_2, csv_file2)
+    team2_data = find_row(team_2, csv_file)
 
     # populate dictionaries
     dict_team1 = {}
@@ -56,14 +61,19 @@ def main(team1, team2):
 
     team1_pos = 100 - (float(dict_team1["Yards"]) + float(dict_team1["Start"]))
     team2_pos = 100 - (float(dict_team2["Yards"]) + float(dict_team2["Start"]))
-    team1_ppd = float(dict_team1["Pts/G"]) * 16 / float(dict_team1["Drives"])
-    team2_ppd = float(dict_team2["Pts/G"]) * 16 / float(dict_team2["Drives"])
+    team1_ppd = float(dict_team1["Pts"])
+    team2_ppd = float(dict_team2["Pts"])
+    #team1_ppd = float(dict_team1["Pts/G"]) * 16 / float(dict_team1["Drives"])
+    #team2_ppd = float(dict_team2["Pts/G"]) * 16 / float(dict_team2["Drives"])
     team1_dpg = float(dict_team1["Drives"]) / 16
     team2_dpg = float(dict_team2["Drives"]) / 16
 
     # theoretical team ppg
     team1_f = team1_dpg * team1_ppd * (100-float(dict_team1["TO"]))/100
     team2_f = team2_dpg * team2_ppd * (100-float(dict_team2["TO"]))/100
+
+    print("HERE")
+    print(team1_f, team2_f)
 
     # choke factor
     rand = random.random()
@@ -75,17 +85,20 @@ def main(team1, team2):
             team2_f = team2_f * .80
 
     # inconsistency factor
-    team1_f = team1_f + random.randrange(-5*int((float(dict_team1["Pts/G"])-team1_f)), 5*int((float(dict_team1["Pts/G"])-team1_f)))
-    team2_f = team2_f + random.randrange(-5*int((float(dict_team2["Pts/G"])-team2_f)), 5*int((float(dict_team2["Pts/G"])-team2_f)))
+    team1_f = team1_f + random.randrange(-5*int(
+        (float(dict_team1["Pts/G"])-team1_f)), 5*int((float(dict_team1["Pts/G"])-team1_f)))
+    team2_f = team2_f + random.randrange(-5*int(
+        (float(dict_team2["Pts/G"])-team2_f)), 5*int((float(dict_team2["Pts/G"])-team2_f)))
 
-    team1_final = dict_team1["Team Name"] + ": " + str(team1_f)
-    team2_final = dict_team2["Team Name"] + ": " + str(team2_f)
-    
+    team1_final = dict_team1["Team"] + ": " + str(team1_f)
+    team2_final = dict_team2["Team"] + ": " + str(team2_f)
+
     win = 0
     if team1_f > team2_f:
-        win = 1;
+        win = 1
     else:
-        win = 2;
+        win = 2
 
     f_list = [team1_final, team2_final, win]
+    print(f_list)
     return f_list

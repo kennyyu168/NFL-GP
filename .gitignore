@@ -3,5 +3,6 @@
 .DS_Store
 Thumbs.db
 env/
+nflgp/
 __pycache__/
 *.pyc
